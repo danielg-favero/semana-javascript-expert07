@@ -5,13 +5,16 @@ import Camera from '../../../lib/shared/camera.js'
 
 const [rootPath] = window.location.href.split('/pages/')
 
+const worker = new Worker('./src/worker.js', { type: "module" })
+
 const camera = await Camera.init()
 
 const factory = {
   async initalize() {
     return Controller.initialize({
         view: new View(),
-        service: new Service({})
+        camera,
+        worker
     })
   }
 }
