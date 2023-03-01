@@ -7,10 +7,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Streaming Service</title>
   <link rel="stylesheet" href="./lib/index.css">
+  <style>
+    #hands {
+      /* faz com que elementos possam ser clicaveis */
+      pointer-events: none;
+
+      /* faz ficar em cima dos elementos */
+      position: fixed;
+
+      /* fica à frente dos elementos */
+      z-index: 2;
+    }
+  </style>
 
 </head>
 
 <body id="body">
+  <canvas id="hands"></canvas>
   <div class="content">
     <div class="header">
       <div class="brand">
