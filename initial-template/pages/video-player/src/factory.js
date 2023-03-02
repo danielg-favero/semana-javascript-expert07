@@ -5,8 +5,10 @@ import Camera from '../../../lib/shared/camera.js'
 
 const [rootPath] = window.location.href.split('/pages/')
 
-const worker = new Worker('./src/worker.js', { type: "module" })
+const view = new View()
+view.setVideoSrc(`${rootPath}/assets/video.mp4`)
 
+const worker = new Worker('./src/worker.js', { type: "module" })
 const camera = await Camera.init()
 
 const factory = {
