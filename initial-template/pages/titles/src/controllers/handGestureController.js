@@ -1,7 +1,7 @@
 import { prepareRunChecker } from '../../../../lib/shared/util.js'
 
 const { shouldRun: scrollShouldRun } = prepareRunChecker({ timerDelay: 200 })
-const { shouldRun: clickShouldRun } = prepareRunChecker({ timerDelay: 200 })
+const { shouldRun: clickShouldRun } = prepareRunChecker({ timerDelay: 400 })
 
 export default class HandGestureController {
     #view
@@ -46,7 +46,7 @@ export default class HandGestureController {
             for await (const { event, x, y } of this.#service.detectGestures(hands)) {
                 if(event === 'click') {
                     if(!clickShouldRun()) continue
-                    
+
                     this.#view.clickOnElement(x, y)
                     continue
                 }
